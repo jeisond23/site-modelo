@@ -1,3 +1,3 @@
-# Projeto Modelo Base
+# Aula 8
 
-## Este é um projeto criado para servir de modelo/base para futuros projetos.
+## Projeto da aula 8.
