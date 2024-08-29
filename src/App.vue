@@ -1,60 +1,67 @@
 <script>
-// Código Javascript aqui
+  // Código Javascript aqui
+  import Header from './components/Header.vue';
+  import Home from './components/Home.vue';
+  // import Sobre from './components/Sobre.vue';
+  // import Contato from './components/Contato.vue';
+  import Footer from './components/Footer.vue';
   export default {
+    components: {
+      Header,
+      Footer,
+      Home,
+      // Sobre,
+      // Contato,
+    },
     data() {
         return {
-            message: "Bem Vindo Fulano!!!",
-            corpo: "Corpo do texto",
-            count: 0
+          //page: "home"
         }
     }
   }
 </script>
 
 <template>
-  <header class="mb-5" id="header">
-      <!-- Cabeçalho -->
-      <nav class="navbar navbar-light border-bottom">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <img src="./assets/img/logo-firjan.png" alt="Logo" class="logo-firjan">
-            </a>
-          </div>
-      </nav>
-      <div class="container-fluid mt-5 text-center">
-          <h1>Curso Programador FrontEnd</h1>
-          <!-- <h2>Disciplina: Desenvolvimento Web</h2>
-          <h3>{{ message }}</h3>
-          <h4>{{ corpo }}</h4> -->
-      </div>
-  </header>
-  <main class="container" id="app">
-      <!-- Conteúdo -->
-      <h3>{{ message }}</h3>
-      <h4>{{ corpo }}</h4>
-      <hr>
-
-      <p v-show="count > 0">Contagem atual: {{ count }}</p>
-
-      <button class="btn btn-warning" @click="count--" :disabled="count <= 0">Decrementar</button> | 
-      <button class="btn btn-primary" @click="count++">Incrementar</button>
-
-      <div v-if="count > 0">
-          <p>Objeto count está sendo atualizado.</p>
-      </div>
-      <div v-else>
-          <p>Objeto count tem como valor o 0.</p>
-      </div>
-
-  </main>
-  <footer class="container-fluid fixed-bottom bg-dark">
-      <!-- Rodapé -->
-        <div class="f-info">
-          <span>Desenvolvido por [SEU NOME] 2024&COPY;</span>
+  <!-- Blocos/Componentes aqui -->
+  <Header />
+  <main class="container d-flex flex-column">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" @click="page = 'home'">HOME</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#" @click="page = 'sobre'">SOBRE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" @click="page = 'contato'">CONTATO</a>
+            </li>
+          </ul>
         </div>
-  </footer>
+      </div>
+    </nav>
+    <section>
+      <Home />
+    </section>
+    <!-- <section v-if="page == 'home'">
+      <Home />
+    </section>
+    <section v-else-if="page == 'sobre'">
+      <Sobre />
+    </section>
+    <section v-else-if="page == 'contato'">
+      <Contato />
+    </section> -->
+  </main>
+  <Footer />
 </template>
 
 <style scoped>
 /* Código CSS aqui */
+main {
+  margin-bottom: 100px;
+}
 </style>

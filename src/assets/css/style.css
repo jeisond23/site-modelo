@@ -27,3 +27,14 @@ footer {
 .card-w {
     width: 18rem;
 }
+
+.subtitulo {
+    margin: 2rem;
+    font-weight: bold;
+}
+
+.p-titulo {
+    margin: 1rem;
+    font-weight: bold;
+    font-size: 18px;
+}
