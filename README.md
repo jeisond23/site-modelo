@@ -1,3 +1,3 @@
-# Aula 8
+# Aula 13
 
-## Projeto da aula 8.
+Site modelo SPA, trabalhando com a navegão pelas páginas do site sem atualização.
