@@ -1,16 +1,16 @@
 <script>
   // Código Javascript aqui
   import Header from './components/Header.vue';
-  // import Home from './pages/Home.vue';
-  // import Sobre from './pages/Sobre.vue';
-  // import Contato from './pages/Contato.vue';
+  import Home from './pages/Home.vue';
+  import Sobre from './pages/Sobre.vue';
+  import Contato from './pages/Contato.vue';
   import Footer from './components/Footer.vue';
 
-  // const routes = {
-  //   '/': Home,
-  //   '/sobre': Sobre,
-  //   '/contato': Contato
-  // }
+  const routes = {
+    '/': Home,
+    '/sobre': Sobre,
+    '/contato': Contato
+  }
 
   export default {
     components: {
@@ -23,19 +23,19 @@
     data() {
         return {
           // page: "home"
-          // currentPath: window.location.hash
+          currentPath: window.location.hash
         }
     },
-    // computed: {
-    //   currentView() {
-    //     return routes[this.currentPath.slice(1) || '/']
-    //   }
-    // },
-    // mounted() {
-    //   window.addEventListener('hashchange', () => {
-    //     this.currentPath = window.location.hash
-    //   })
-    // }
+    computed: {
+      currentView() {
+        return routes[this.currentPath.slice(1) || '/']
+      }
+    },
+    mounted() {
+      window.addEventListener('hashchange', () => {
+        this.currentPath = window.location.hash
+      })
+    }
   }
 </script>
 
@@ -43,8 +43,6 @@
   <!-- Blocos/Componentes aqui -->
   <Header />
   <main class="container d-flex flex-column">
-    <RouterView />
-    <!-- <router-view></router-view> -->
     <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#/" @click="page = 'home'">HOME</a>
@@ -63,7 +61,7 @@
         </div>
       </div>
     </nav> -->
-    <!-- <component :is="currentView" /> -->
+    <component :is="currentView" />
     <!-- <section>
       <Home />
     </section> -->
